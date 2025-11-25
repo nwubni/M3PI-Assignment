@@ -1,10 +1,14 @@
-import os
+"""
+Orchestrator class that classifies user queries into agent categories.
+"""
+
 import os
 import sys
-
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableMap
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
 
@@ -23,27 +27,65 @@ agents = {"HRAgent": HRAgent, "TechAgent": TechAgent, "FinanceAgent": FinanceAge
 
 def create_agent_qa_chain(agent: str, query: str):
     """
-    Creates and runs a specific agent with the given query.
+    Creates and runs a specific agent with the given query using LangChain 1.x Runnable pipeline.
 
     Args:
         agent (str): The name of the agent.
         query (str): The query to be processed.
 
     Returns:
-        str: The agent's response.
+        str: The agent's response based on retrieved context.
     """
     agent_obj = agents[agent]()
     agent_obj.query = query
 
-    # qa_chain = RetrievalQA.from_chain_type(
-    #     llm=ChatOpenAI(model=os.getenv("LLM_MODEL", "gpt-4")),
-    #     retriever=agent_obj.get_local_index().as_retriever(),
-    #     chain_type="stuff"
-    # )
+    try:
+        # Get the vector store and create retriever
+        vector_store = agent_obj.get_local_index()
+        retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
-    # return qa_chain.run(query)
+        # Create LLM
+        llm = ChatOpenAI(
+            model=os.getenv("LLM_MODEL", "gpt-4"),
+            temperature=0,
+            max_completion_tokens=130,
+        )
 
-    return agent_obj.run()
+        # Load prompt template from file
+        prompt_path = os.path.join(os.path.dirname(__file__), "..", "..", "prompts", "agent_prompt.txt")
+        with open(prompt_path, "r") as f:
+            prompt_template = f.read()
+        prompt = ChatPromptTemplate.from_template(prompt_template)
+
+        # Create the Runnable pipeline using LangChain 1.x API
+        qa_chain = (
+            RunnableMap(
+                {
+                    "context": lambda x: "\n\n".join(
+                        [
+                            doc.page_content
+                            for doc in retriever.invoke(x["question"])
+                        ]
+                    ),
+                    "question": lambda x: x["question"],
+                    "agent_type": lambda x: x["agent_type"],
+                }
+            )
+            | prompt
+            | llm
+        )
+
+        # Run the chain
+        result = qa_chain.invoke(
+            {"question": query, "agent_type": agent.replace("Agent", "")}
+        )
+
+        return result.content
+
+    except Exception as e:
+        # Fallback to basic agent response if vector store fails
+        print(f"Vector store error for {agent}: {e}")
+        return agent_obj.run()
 
 
 # Create wrapper functions for each agent

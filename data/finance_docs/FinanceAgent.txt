@@ -1,0 +1,143 @@
+FINANCE & ACCOUNTING FAQ - MID-SIZED SAAS COMPANY
+
+BILLING & PAYMENTS
+Q: How do I update my payment method?
+A: Navigate to Settings > Billing > Payment Methods. Click "Add Payment Method" or "Edit" next to an existing method. Enter your new card details or bank information. The new payment method will be used for future invoices.
+
+Q: When will I be charged?
+A: Billing occurs on your subscription renewal date. For monthly plans, you're charged on the same day each month. For annual plans, you're charged once per year on your subscription anniversary. You'll receive an email notification 3 days before the charge.
+
+Q: How do I view my billing history?
+A: Go to Settings > Billing > Invoices to view and download all past invoices. You can filter by date range, amount, or status. All invoices are available for download in PDF format.
+
+Q: I was charged incorrectly. What should I do?
+A: Contact our billing team immediately at billing@ourcompany.com or through the support portal. Include: invoice number, charge amount, date, and explanation of the discrepancy. We'll investigate and issue a refund or credit within 5-7 business days if warranted.
+
+Q: Can I change my billing cycle?
+A: Yes, you can switch between monthly and annual billing. Go to Settings > Billing > Subscription and click "Change Plan". Note: Switching to annual billing provides a discount. Switching to monthly may result in a prorated charge.
+
+SUBSCRIPTION & PLANS
+Q: How do I upgrade or downgrade my plan?
+A: Go to Settings > Billing > Subscription. Click "Change Plan" and select your desired tier. Changes take effect immediately. Upgrades are prorated, and downgrades take effect at your next billing cycle.
+
+Q: What's included in each subscription tier?
+A: Basic Plan: Up to 10 users, core features, email support. Professional Plan: Up to 50 users, advanced features, priority support, API access. Enterprise Plan: Unlimited users, all features, dedicated support, custom integrations, SLA guarantee. See our pricing page for detailed feature comparison.
+
+Q: Can I get a refund?
+A: We offer a 30-day money-back guarantee for new subscriptions. After 30 days, refunds are evaluated on a case-by-case basis. Annual plan cancellations within the first 30 days receive a full refund. Contact billing@ourcompany.com for refund requests.
+
+Q: What happens if I cancel my subscription?
+A: You can cancel anytime from Settings > Billing > Subscription > Cancel. Your subscription remains active until the end of your current billing period. After cancellation, you'll lose access to paid features but can export your data for 30 days.
+
+Q: Do you offer discounts for annual plans?
+A: Yes, annual plans receive a 20% discount compared to monthly billing. We also offer discounts for educational institutions, non-profits, and multi-year commitments. Contact sales@ourcompany.com for custom pricing.
+
+INVOICES & RECEIPTS
+Q: How do I get a receipt for my payment?
+A: Receipts are automatically emailed to your billing email address after each payment. You can also download receipts from Settings > Billing > Invoices. Receipts are available in PDF format.
+
+Q: Can I get an invoice for my records?
+A: Yes, all invoices are available in Settings > Billing > Invoices. You can download PDF invoices, view payment history, and print invoices for your records. Invoices include all required tax information.
+
+Q: I need a custom invoice format. Is that possible?
+A: Enterprise customers can request custom invoice formats. Contact your account manager or billing@ourcompany.com. We can include additional fields, company logos, or specific formatting requirements.
+
+Q: How do I update my billing address?
+A: Go to Settings > Billing > Billing Information. Update your billing address and click "Save". Updated addresses will be used for future invoices. Past invoices cannot be modified.
+
+TAXES & COMPLIANCE
+Q: Will I be charged sales tax?
+A: Sales tax is applied based on your billing address and local tax regulations. Tax rates are calculated automatically at checkout. Enterprise customers can provide tax exemption certificates through their account manager.
+
+Q: How do I provide a tax exemption certificate?
+A: Enterprise customers can upload tax exemption certificates in Settings > Billing > Tax Information. Contact billing@ourcompany.com for assistance. Certificates are reviewed within 2-3 business days.
+
+Q: Do you provide tax forms (1099, W-9)?
+A: We provide W-9 forms upon request for US-based vendors and contractors. Contact accounting@ourcompany.com to request tax forms. Forms are typically provided within 5-7 business days.
+
+EXPENSES & REIMBURSEMENTS
+Q: How do I submit an expense for reimbursement?
+A: Submit expenses through the expense management portal: Settings > Expenses > Submit Expense. Include: receipt, amount, date, category, and business purpose. Expenses are reviewed within 5-7 business days. Approved expenses are reimbursed via direct deposit within 10 business days.
+
+Q: What expenses are reimbursable?
+A: Reimbursable expenses include: business travel, meals (with clients or during travel), professional development, software subscriptions, office supplies, and other pre-approved business expenses. See the Employee Handbook for detailed policy.
+
+Q: What's the expense reimbursement limit?
+A: Standard expenses under $500 are auto-approved for managers and above. Expenses over $500 require manager approval. Travel expenses over $1,000 require director approval. All expenses must include receipts.
+
+Q: How long does expense reimbursement take?
+A: Standard processing time is 5-7 business days for approval, then 10 business days for payment. Expedited processing (2-3 days) is available for urgent expenses with manager approval.
+
+BUDGET & FORECASTING
+Q: How do I access budget information?
+A: Budget information is available in the Finance Dashboard for authorized users. Navigate to Finance > Budget to view department budgets, spending trends, and remaining allocations. Contact finance@ourcompany.com for access.
+
+Q: How are budgets allocated?
+A: Annual budgets are set at the beginning of each fiscal year. Department heads receive budget allocations based on strategic priorities and historical spending. Mid-year adjustments may be made with CFO approval.
+
+Q: Can I request additional budget?
+A: Budget increase requests must be submitted through the budget request form (Finance > Budget > Request Increase). Include justification, amount needed, and business impact. Requests are reviewed monthly by the finance committee.
+
+PAYROLL & COMPENSATION
+Q: When is payday?
+A: Salaried employees are paid on the 15th and last day of each month. Hourly employees are paid bi-weekly on Fridays. Direct deposit is available and recommended. Paper checks are available upon request.
+
+Q: How do I update my direct deposit information?
+A: Update direct deposit in the HR portal: HR > Payroll > Direct Deposit. Changes must be submitted by the 1st of the month to take effect for that month's payroll. You'll receive a confirmation email.
+
+Q: How do I access my pay stubs?
+A: Pay stubs are available in the HR portal: HR > Payroll > Pay Stubs. You can view and download pay stubs for the current year and previous two years. Pay stubs are available 2 days before payday.
+
+Q: I have a question about my paycheck. Who should I contact?
+A: Contact payroll@ourcompany.com or your HR representative. Include your employee ID, pay period, and specific question. Payroll inquiries are typically responded to within 24-48 hours.
+
+VENDOR & PURCHASING
+Q: How do I set up a new vendor?
+A: Submit a vendor setup form through Finance > Vendors > New Vendor. Include: vendor name, contact information, W-9 form (for US vendors), banking details, and purchase order requirements. Vendor setup takes 5-7 business days.
+
+Q: What's the purchase order process?
+A: Purchase orders over $500 require pre-approval. Submit a purchase request through Finance > Purchasing > New Request. Include: vendor, amount, justification, and budget code. Approved requests receive a PO number within 3-5 business days.
+
+Q: How do I track vendor payments?
+A: Vendor payment status is available in Finance > Vendors > Payment Status. You can view pending payments, payment history, and upcoming payment dates. Contact accounts-payable@ourcompany.com for specific inquiries.
+
+FINANCIAL REPORTING
+Q: How do I access financial reports?
+A: Financial reports are available in the Finance Dashboard for authorized users. Standard reports include: P&L statements, balance sheets, cash flow statements, and budget vs. actual reports. Contact finance@ourcompany.com for access or custom reports.
+
+Q: How often are financial reports updated?
+A: Financial reports are updated monthly after month-end close (typically by the 10th of the following month). Real-time dashboards show current month activity. Annual reports are published within 90 days of fiscal year end.
+
+Q: Can I request a custom financial report?
+A: Custom reports can be requested through finance@ourcompany.com. Include: report type, date range, specific metrics, and intended use. Custom reports are typically delivered within 5-10 business days.
+
+CREDIT & COLLECTIONS
+Q: What are your payment terms?
+A: Standard payment terms are Net 30 (payment due within 30 days of invoice date). Enterprise customers may have custom terms (Net 15, Net 45, or Net 60) as specified in their contract.
+
+Q: What happens if I'm late on a payment?
+A: Late payments may incur a 1.5% monthly interest charge. After 60 days overdue, service may be suspended. After 90 days, accounts are sent to collections. Contact billing@ourcompany.com immediately if you're experiencing payment difficulties.
+
+Q: Can I set up a payment plan?
+A: Payment plans may be available for customers experiencing temporary financial difficulties. Contact billing@ourcompany.com to discuss options. Payment plans require a signed agreement and may include interest charges.
+
+FINANCIAL POLICIES
+Q: What's the company's expense policy?
+A: Our expense policy is detailed in the Employee Handbook. Key points: all expenses require receipts, business justification, and manager approval for amounts over $500. Personal expenses are not reimbursable. See Finance > Policies for the complete policy.
+
+Q: What's the travel and entertainment policy?
+A: Business travel requires pre-approval for trips over $1,000. Economy class flights are standard; business class requires director approval. Meals are reimbursable up to $75/day for domestic travel, $100/day for international. See the Travel Policy document for details.
+
+Q: What's the procurement policy?
+A: Purchases under $500 can be made with manager approval. Purchases $500-$5,000 require director approval. Purchases over $5,000 require CFO approval and may require competitive bidding. All purchases must align with budget allocations.
+
+CONTACT INFORMATION
+Q: Who do I contact for billing questions?
+A: Email billing@ourcompany.com or call 1-800-XXX-XXXX (Monday-Friday, 9 AM - 5 PM EST). For urgent matters, use the support portal and mark as "Billing - Urgent".
+
+Q: Who do I contact for payroll questions?
+A: Contact payroll@ourcompany.com or your HR representative. Payroll inquiries are typically responded to within 24-48 hours during business days.
+
+Q: Who do I contact for general finance questions?
+A: Contact finance@ourcompany.com for general inquiries. For specific departments: accounts-payable@ourcompany.com (vendor payments), accounting@ourcompany.com (accounting questions), treasury@ourcompany.com (cash management).
+

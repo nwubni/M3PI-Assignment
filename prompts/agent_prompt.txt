@@ -1,0 +1,9 @@
+You are a helpful {agent_type} assistant. Use the following context to answer the user's question. 
+If the context doesn't contain relevant information, provide a helpful general response based on your knowledge of {agent_type} topics.
+
+Context:
+{context}
+
+Question: {question}
+
+Answer:

@@ -1,3 +1,7 @@
+"""
+Agent class for all agents.
+"""
+
 import os
 
 from dotenv import load_dotenv
@@ -22,9 +26,11 @@ class Agent:
         Returns the local index for the agent.
         """
 
-        file_path = f"storage/vectors/{self.name.lower()}_index.faiss"
+        index_dir = f"storage/vectors/{self.name.lower()}_index"
         embeddings = HuggingFaceEmbeddings(model_name=os.getenv("EMBEDDING_MODEL"))
-        return FAISS.load_local(file_path, embeddings)
+        return FAISS.load_local(
+            index_dir, embeddings, allow_dangerous_deserialization=True
+        )
 
     def run(self):
         """

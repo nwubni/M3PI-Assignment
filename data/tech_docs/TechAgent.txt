@@ -1,0 +1,95 @@
+TECHNICAL SUPPORT FAQ - MID-SIZED SAAS COMPANY
+
+GENERAL TECHNICAL SUPPORT
+Q: How do I reset my password?
+A: To reset your password, go to the login page and click "Forgot Password". Enter your email address and you'll receive a password reset link within 5 minutes. The link expires after 24 hours.
+
+Q: I'm having trouble logging into my account. What should I do?
+A: First, verify you're using the correct email address and password. Clear your browser cache and cookies, then try again. If the issue persists, check if your account has been locked due to multiple failed login attempts. Contact support if you need account unlock assistance.
+
+Q: How do I enable two-factor authentication (2FA)?
+A: Navigate to Settings > Security > Two-Factor Authentication. Click "Enable 2FA" and follow the prompts to scan the QR code with your authenticator app (Google Authenticator, Authy, etc.). Save your backup codes in a secure location.
+
+Q: What browsers are supported?
+A: We support the latest versions of Chrome, Firefox, Safari, and Edge. For optimal performance, we recommend Chrome or Firefox. Internet Explorer is not supported.
+
+Q: How do I clear my browser cache?
+A: Chrome: Press Ctrl+Shift+Delete (Windows) or Cmd+Shift+Delete (Mac), select "Cached images and files", then click "Clear data". Firefox: Press Ctrl+Shift+Delete, select "Cache", then click "Clear Now". Safari: Safari menu > Preferences > Advanced > check "Show Develop menu", then Develop > Empty Caches.
+
+SOFTWARE & APPLICATION ISSUES
+Q: The application is running slowly. What can I do?
+A: Try these steps: 1) Clear your browser cache and cookies, 2) Close unnecessary browser tabs, 3) Check your internet connection speed, 4) Disable browser extensions that might interfere, 5) Try a different browser. If issues persist, contact support with details about when the slowness occurs.
+
+Q: I'm getting an error message. What does it mean?
+A: Error messages are designed to help diagnose issues. Common errors include: "Session expired" (refresh the page and log in again), "Network error" (check your internet connection), "Permission denied" (contact your administrator for access). For specific error codes, refer to our error code documentation or contact support.
+
+Q: How do I update the application?
+A: Our application is cloud-based and updates automatically. You don't need to manually update. If you see a notification about new features, simply refresh your browser to access them. For mobile apps, update through your app store.
+
+Q: The application won't load or displays a blank page. What should I do?
+A: Try these troubleshooting steps: 1) Hard refresh your browser (Ctrl+F5 or Cmd+Shift+R), 2) Clear browser cache, 3) Disable browser extensions temporarily, 4) Try incognito/private browsing mode, 5) Check if other websites load (verify your internet connection), 6) Try a different browser or device.
+
+INTEGRATIONS & API
+Q: How do I integrate with third-party applications?
+A: We support integrations through our API and pre-built connectors. Navigate to Settings > Integrations to view available connectors. For custom integrations, refer to our API documentation or contact our integration team.
+
+Q: Where can I find API documentation?
+A: API documentation is available at api.ourcompany.com/docs. You'll need an API key, which can be generated in Settings > API Keys. For additional support, contact our developer relations team.
+
+Q: My API integration stopped working. How do I troubleshoot?
+A: Check the following: 1) Verify your API key is active and hasn't expired, 2) Check API rate limits haven't been exceeded, 3) Review recent API logs in Settings > API > Logs, 4) Ensure your integration is using the latest API version, 5) Check our status page for any service disruptions.
+
+DATA & BACKUP
+Q: How often is my data backed up?
+A: All data is automatically backed up daily with point-in-time recovery available for the past 30 days. Critical data is backed up in real-time. You can also export your data manually at any time from Settings > Data Export.
+
+Q: How do I export my data?
+A: Go to Settings > Data Export. Select the data types you want to export and the date range. Click "Export" and you'll receive an email with a download link when the export is ready (usually within 24 hours for large exports).
+
+Q: Can I restore deleted data?
+A: Yes, deleted data can be restored within 30 days. Go to Settings > Data Recovery, select the item type, and choose a restore point. For critical data recovery, contact support immediately.
+
+MOBILE & DEVICES
+Q: Do you have a mobile app?
+A: Yes, we have iOS and Android apps available in the App Store and Google Play Store. The mobile app provides core functionality and syncs with your web account.
+
+Q: How do I access the application on my mobile device?
+A: Download our mobile app from the App Store (iOS) or Google Play Store (Android). Log in with your existing credentials. You can also access the web version through your mobile browser.
+
+Q: The mobile app crashes or won't open. What should I do?
+A: Try these steps: 1) Force close and restart the app, 2) Update the app to the latest version, 3) Restart your device, 4) Uninstall and reinstall the app (your data is safe in the cloud), 5) Check if your device meets minimum requirements (iOS 13+ or Android 8+).
+
+NETWORK & CONNECTIVITY
+Q: I'm getting connection errors. What could be the cause?
+A: Connection errors can be caused by: 1) Unstable internet connection (check your network), 2) Firewall blocking our servers (contact IT to whitelist our IPs), 3) VPN interference (try disconnecting VPN temporarily), 4) Corporate proxy settings (contact IT administrator).
+
+Q: What are the system requirements?
+A: Minimum requirements: Modern web browser (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+), stable internet connection (1 Mbps minimum, 5 Mbps recommended), JavaScript enabled. For mobile: iOS 13+ or Android 8+.
+
+SECURITY & PRIVACY
+Q: How secure is my data?
+A: We use industry-standard encryption (AES-256) for data at rest and TLS 1.3 for data in transit. We're SOC 2 Type II certified and GDPR compliant. Regular security audits and penetration testing are conducted.
+
+Q: I suspect unauthorized access to my account. What should I do?
+A: Immediately: 1) Change your password, 2) Enable 2FA if not already enabled, 3) Review recent activity in Settings > Security > Activity Log, 4) Revoke all active sessions in Settings > Security > Active Sessions, 5) Contact security@ourcompany.com to report the incident.
+
+Q: How do I manage user permissions and access?
+A: Administrators can manage user permissions in Settings > Users & Permissions. You can assign roles (Admin, Manager, User, Viewer) and customize permissions for specific features. Changes take effect immediately.
+
+TROUBLESHOOTING
+Q: I can't upload files. What's wrong?
+A: Check the following: 1) File size (maximum 100MB per file), 2) File type (check allowed formats), 3) Browser compatibility, 4) Available storage space in your account, 5) Internet connection stability. For large files, try using the desktop uploader.
+
+Q: Notifications aren't working. How do I fix this?
+A: Verify: 1) Notification settings are enabled in Settings > Notifications, 2) Browser notifications are allowed (check browser settings), 3) You're not in "Do Not Disturb" mode, 4) Email notifications aren't going to spam. For mobile apps, check device notification settings.
+
+Q: How do I report a bug?
+A: Report bugs through: 1) In-app feedback button (bottom right corner), 2) Support portal at support.ourcompany.com, 3) Email bugs@ourcompany.com. Include: description, steps to reproduce, browser/device info, screenshots if possible.
+
+SUPPORT CONTACT
+Q: How do I contact technical support?
+A: Support is available through: 1) In-app chat (24/7), 2) Email support@ourcompany.com (response within 24 hours), 3) Phone support (Monday-Friday, 9 AM - 6 PM EST) at 1-800-XXX-XXXX, 4) Support portal at support.ourcompany.com for ticket tracking.
+
+Q: What information should I provide when contacting support?
+A: Include: 1) Your account email, 2) Description of the issue, 3) Steps to reproduce, 4) Browser/device information, 5) Screenshots or error messages, 6) When the issue started occurring. This helps us resolve issues faster.
+
