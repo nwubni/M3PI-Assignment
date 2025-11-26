@@ -2,8 +2,7 @@
 Tech Agent class that processes user queries related to Technical Support.
 """
 
-from typing import Optional
-from agents.agent import Agent
+from .agent import Agent
 
 
 class TechAgent(Agent):

@@ -11,6 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableMap
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
+from langsmith import traceable
 
 from agents.finance_agent import FinanceAgent
 from agents.hr_agent import HRAgent
@@ -37,7 +38,6 @@ def create_agent_qa_chain(agent: str, query: str):
         str: The agent's response based on retrieved context.
     """
     agent_obj = agents[agent]()
-    agent_obj.query = query
 
     try:
         # Get the vector store and create retriever
@@ -52,7 +52,9 @@ def create_agent_qa_chain(agent: str, query: str):
         )
 
         # Load prompt template from file
-        prompt_path = os.path.join(os.path.dirname(__file__), "..", "..", "prompts", "agent_prompt.txt")
+        prompt_path = os.path.join(
+            os.path.dirname(__file__), "..", "..", "prompts", "agent_prompt.txt"
+        )
         with open(prompt_path, "r") as f:
             prompt_template = f.read()
         prompt = ChatPromptTemplate.from_template(prompt_template)
@@ -62,10 +64,7 @@ def create_agent_qa_chain(agent: str, query: str):
             RunnableMap(
                 {
                     "context": lambda x: "\n\n".join(
-                        [
-                            doc.page_content
-                            for doc in retriever.invoke(x["question"])
-                        ]
+                        [doc.page_content for doc in retriever.invoke(x["question"])]
                     ),
                     "question": lambda x: x["question"],
                     "agent_type": lambda x: x["agent_type"],
@@ -89,16 +88,19 @@ def create_agent_qa_chain(agent: str, query: str):
 
 
 # Create wrapper functions for each agent
+@traceable(run_name="llm")
 def hr_agent_func(query: str) -> str:
     """Wrapper function for HRAgent"""
     return create_agent_qa_chain("HRAgent", query)
 
 
+@traceable(run_name="llm")
 def tech_agent_func(query: str) -> str:
     """Wrapper function for TechAgent"""
     return create_agent_qa_chain("TechAgent", query)
 
 
+@traceable(run_name="llm")
 def finance_agent_func(query: str) -> str:
     """Wrapper function for FinanceAgent"""
     return create_agent_qa_chain("FinanceAgent", query)
@@ -140,6 +142,7 @@ class Orchestrator:
 
         print(f"Orchestrator is initializing with query: {self.query}")
 
+    @traceable(run_name="chain")
     def run(self) -> str:
         """
         Runs the orchestrator with tool-based agent routing.

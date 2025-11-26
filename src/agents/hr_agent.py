@@ -2,8 +2,7 @@
 HR Agent class that processes user queries related to Human Resources.
 """
 
-from typing import Optional
-from agents.agent import Agent
+from .agent import Agent
 
 
 class HRAgent(Agent):

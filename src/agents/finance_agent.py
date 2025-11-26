@@ -2,7 +2,6 @@
 Finance Agent class that processes user queries related to Finances.
 """
 
-from typing import Optional
 from agents.agent import Agent
 
 

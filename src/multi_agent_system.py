@@ -9,7 +9,7 @@ def main():
     """
     Main function to run the orchestrator.
     """
-    orchestrator = Orchestrator(query="Can I work remotely, and what does it take?")
+    orchestrator = Orchestrator(query="Is it possible to get paid in advance?")
     response = orchestrator.run()
     print(f"Response: {response}")
 
