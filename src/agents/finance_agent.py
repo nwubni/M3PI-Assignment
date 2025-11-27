@@ -2,6 +2,8 @@
 Finance Agent class that processes user queries related to Finances.
 """
 
+from enums.agent_enums import AgentType
+
 from agents.agent import Agent
 
 
@@ -11,4 +13,4 @@ class FinanceAgent(Agent):
     """
 
     def __init__(self):
-        super().__init__("FinanceAgent")
+        super().__init__(AgentType.FINANCE)

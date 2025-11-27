@@ -2,7 +2,9 @@
 Tech Agent class that processes user queries related to Technical Support.
 """
 
-from .agent import Agent
+from enums.agent_enums import AgentType
+
+from src.agents.agent import Agent
 
 
 class TechAgent(Agent):
@@ -11,4 +13,4 @@ class TechAgent(Agent):
     """
 
     def __init__(self):
-        super().__init__("TechAgent")
+        super().__init__(AgentType.TECH)

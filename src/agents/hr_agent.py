@@ -2,7 +2,8 @@
 HR Agent class that processes user queries related to Human Resources.
 """
 
-from .agent import Agent
+from enums.agent_enums import AgentType
+from src.agents.agent import Agent
 
 
 class HRAgent(Agent):
@@ -11,4 +12,4 @@ class HRAgent(Agent):
     """
 
     def __init__(self):
-        super().__init__("HRAgent")
+        super().__init__(AgentType.HR)
