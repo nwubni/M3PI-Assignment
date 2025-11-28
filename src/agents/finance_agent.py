@@ -2,9 +2,8 @@
 Finance Agent class that processes user queries related to Finances.
 """
 
-from enums.agent_enums import AgentType
-
-from agents.agent import Agent
+from src.enums.agent_enums import AgentType
+from src.agents.agent import Agent
 
 
 class FinanceAgent(Agent):

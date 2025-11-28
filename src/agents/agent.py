@@ -17,8 +17,12 @@ class Agent:
     Base class for all agents.
     """
 
-    def __init__(self, name: str):
-        self.name = name
+    def __init__(self, name):
+        # Handle both string and AgentType enum
+        if hasattr(name, "value"):
+            self.name = name.value
+        else:
+            self.name = name
         print(f"{self.name} is initializing")
 
     def get_local_index(self):

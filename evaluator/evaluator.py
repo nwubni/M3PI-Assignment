@@ -4,7 +4,6 @@ LangFuse evaluator for RAG response quality scoring.
 """
 
 import os
-from langfuse import Langfuse
 from openai import OpenAI
 
 

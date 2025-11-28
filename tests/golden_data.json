@@ -1,0 +1,282 @@
+[
+  {
+    "id": "hr_001",
+    "query": "How do I apply for parental leave?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "To apply for parental leave, submit the parental leave request form to your manager and HR department at least 30 days before your intended leave date.",
+    "category": "leave_policy",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hr_002",
+    "query": "What are the company's vacation day policies?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Full-time employees receive vacation days based on company policy. Check your employee handbook or contact HR for specific details about accrual rates and usage.",
+    "category": "benefits",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hr_003",
+    "query": "How do I access my pay stubs?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Pay stubs are available in the HR portal. Log in to the portal and navigate to the Pay section to view and download your pay stubs.",
+    "category": "payroll",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hr_004",
+    "query": "What is the Employee Assistance Program?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "The Employee Assistance Program (EAP) is a free, confidential counseling service available to employees and their families for personal or work-related issues.",
+    "category": "benefits",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hr_005",
+    "query": "How do I contact HR?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "You can contact HR through email at hr@ourcompany.com, via the HR portal, or by calling the HR hotline.",
+    "category": "general",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hr_006",
+    "query": "What's the policy on flexible work schedules?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Flexible work schedules are available with manager approval. Discuss your needs with your manager to arrange a schedule that works for both you and the team.",
+    "category": "work_policy",
+    "difficulty": "medium"
+  },
+  {
+    "id": "hr_007",
+    "query": "Are there pension plans available for workers?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "The company offers retirement and pension plan options. Contact HR or check your benefits documentation for details about available plans and enrollment.",
+    "category": "benefits",
+    "difficulty": "medium"
+  },
+  {
+    "id": "hr_008",
+    "query": "Are loans available for workers, and how does it work?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Some organizations offer employee loan programs such as salary advances or low-interest loans for emergencies. Check with HR for specific policies and application procedures.",
+    "category": "benefits",
+    "difficulty": "medium"
+  },
+  {
+    "id": "hr_009",
+    "query": "What's the process for reporting workplace harassment?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Report workplace harassment immediately to HR or your manager. The company has a zero-tolerance policy and will investigate all reports confidentially.",
+    "category": "compliance",
+    "difficulty": "medium"
+  },
+  {
+    "id": "hr_010",
+    "query": "How do I update my emergency contact information?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Update your emergency contact information through the HR portal or by submitting an updated form to the HR department.",
+    "category": "general",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tech_001",
+    "query": "My laptop won't turn on, what should I do?",
+    "expected_agent": "TechAgent",
+    "expected_answer": "First, check if the laptop is charged and the power adapter is connected. If it still won't turn on, contact IT support for hardware diagnostics.",
+    "category": "hardware",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tech_002",
+    "query": "How do I reset my password?",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Use the password reset portal or contact IT support. You'll need to verify your identity before receiving a temporary password.",
+    "category": "access",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tech_003",
+    "query": "I can't access the company VPN",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Ensure you have the VPN client installed and your credentials are correct. If issues persist, contact IT support for VPN troubleshooting.",
+    "category": "network",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tech_004",
+    "query": "My email is not syncing properly",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Try restarting your email client and checking your internet connection. If the problem continues, contact IT support for email configuration assistance.",
+    "category": "software",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tech_005",
+    "query": "How do I request new software installation?",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Submit a software request ticket through the IT portal. Include the software name, business justification, and any licensing information.",
+    "category": "software",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tech_006",
+    "query": "My computer is running very slow",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Close unnecessary applications, restart your computer, and check for system updates. If performance issues persist, contact IT support for diagnostics.",
+    "category": "performance",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tech_007",
+    "query": "How do I connect to the office printer?",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Go to your computer's printer settings, select 'Add Printer', and choose the office network printer. Contact IT support if you need assistance with printer setup.",
+    "category": "hardware",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tech_008",
+    "query": "I'm getting a blue screen error on Windows",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Note the error code, restart your computer, and contact IT support immediately. Blue screen errors may indicate hardware or driver issues requiring professional diagnosis.",
+    "category": "troubleshooting",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tech_009",
+    "query": "How do I access shared network drives?",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Network drives should be automatically mapped when you log in. If you can't access them, contact IT support to verify your permissions and network configuration.",
+    "category": "network",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tech_010",
+    "query": "My webcam isn't working for video calls",
+    "expected_agent": "TechAgent",
+    "expected_answer": "Check if the webcam is enabled in your system settings and that the application has permission to access it. Contact IT support if hardware issues are suspected.",
+    "category": "hardware",
+    "difficulty": "medium"
+  },
+  {
+    "id": "finance_001",
+    "query": "How do I submit an expense report?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Submit expense reports through the finance portal with receipts attached. Ensure all expenses are properly categorized and approved by your manager.",
+    "category": "expenses",
+    "difficulty": "easy"
+  },
+  {
+    "id": "finance_002",
+    "query": "What's the budget approval process?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Budget requests must be submitted to your department head, then reviewed by finance. Approval depends on available funds and business justification.",
+    "category": "budget",
+    "difficulty": "medium"
+  },
+  {
+    "id": "finance_003",
+    "query": "Where can I get my financial reports?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Financial reports are available in the finance portal. You can access monthly statements, budget reports, and expense summaries based on your access level.",
+    "category": "reporting",
+    "difficulty": "easy"
+  },
+  {
+    "id": "finance_004",
+    "query": "How do I request a purchase order?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Submit a purchase order request through the procurement system with vendor details, item description, and cost. Manager approval is required before processing.",
+    "category": "procurement",
+    "difficulty": "medium"
+  },
+  {
+    "id": "finance_005",
+    "query": "What's our company's invoice payment timeline?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Invoices are typically processed within 30 days of receipt. Contact accounts payable for specific payment status or urgent requests.",
+    "category": "accounts_payable",
+    "difficulty": "easy"
+  },
+  {
+    "id": "finance_006",
+    "query": "How do I track project expenses?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Use the project expense tracking module in the finance portal. Assign expenses to specific project codes for accurate budget monitoring.",
+    "category": "expenses",
+    "difficulty": "medium"
+  },
+  {
+    "id": "finance_007",
+    "query": "What's the reimbursement policy for travel expenses?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Travel expenses are reimbursed according to company policy. Submit receipts within 30 days of travel with proper documentation and manager approval.",
+    "category": "expenses",
+    "difficulty": "medium"
+  },
+  {
+    "id": "finance_008",
+    "query": "How do I access quarterly financial statements?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Quarterly financial statements are available in the finance portal for authorized users. Contact finance if you need access or have questions about the reports.",
+    "category": "reporting",
+    "difficulty": "easy"
+  },
+  {
+    "id": "finance_009",
+    "query": "What's the process for budget variance analysis?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Budget variance reports compare actual spending to planned budgets. Review monthly variance reports and work with finance to address significant discrepancies.",
+    "category": "budget",
+    "difficulty": "hard"
+  },
+  {
+    "id": "finance_010",
+    "query": "How do I set up a new vendor in the system?",
+    "expected_agent": "FinanceAgent",
+    "expected_answer": "Submit a vendor setup request to accounts payable with vendor details, tax information, and payment terms. Finance will verify and activate the vendor account.",
+    "category": "procurement",
+    "difficulty": "medium"
+  },
+  {
+    "id": "edge_001",
+    "query": "I need help with my work computer and expense report",
+    "expected_agent": "TechAgent",
+    "expected_answer": "This query involves both tech and finance. For the computer issue, contact IT support. For the expense report, use the finance portal.",
+    "category": "multi_domain",
+    "difficulty": "hard"
+  },
+  {
+    "id": "edge_002",
+    "query": "Who do I talk to about payroll deductions for my new laptop?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "This involves HR (payroll) and potentially IT (laptop). Start with HR for payroll deduction questions, then coordinate with IT for equipment.",
+    "category": "multi_domain",
+    "difficulty": "hard"
+  },
+  {
+    "id": "edge_003",
+    "query": "What can you help me with?",
+    "expected_agent": "HRAgent",
+    "expected_answer": "I can help with HR questions (benefits, leave, policies), Tech support (IT issues, software, hardware), and Finance matters (expenses, budgets, invoices).",
+    "category": "general",
+    "difficulty": "easy"
+  },
+  {
+    "id": "edge_004",
+    "query": "Hello",
+    "expected_agent": "HRAgent",
+    "expected_answer": "Hello! How can I assist you today? I can help with HR, Tech, or Finance related questions.",
+    "category": "greeting",
+    "difficulty": "easy"
+  },
+  {
+    "id": "edge_005",
+    "query": "I'm having issues accessing financial data on my laptop",
+    "expected_agent": "TechAgent",
+    "expected_answer": "This appears to be primarily a technical access issue. Contact IT support for help accessing systems. If it's a permissions issue, they may coordinate with finance.",
+    "category": "multi_domain",
+    "difficulty": "hard"
+  }
+]

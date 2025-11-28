@@ -2,7 +2,7 @@
 HR Agent class that processes user queries related to Human Resources.
 """
 
-from enums.agent_enums import AgentType
+from src.enums.agent_enums import AgentType
 from src.agents.agent import Agent
 
 

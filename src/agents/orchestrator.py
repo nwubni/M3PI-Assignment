@@ -14,14 +14,13 @@ from langchain_openai import ChatOpenAI
 from langfuse import observe, get_client
 from langfuse.langchain import CallbackHandler
 
-from enums.agent_enums import AgentType
-
 # Add path for evaluator import
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-from agents.finance_agent import FinanceAgent
-from agents.hr_agent import HRAgent
-from agents.tech_agent import TechAgent
+from src.enums.agent_enums import AgentType
+from src.agents.finance_agent import FinanceAgent
+from src.agents.hr_agent import HRAgent
+from src.agents.tech_agent import TechAgent
 
 load_dotenv()
 

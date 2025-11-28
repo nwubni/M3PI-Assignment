@@ -24,6 +24,11 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your API keys
 
+# Build vector indices from documents
+python -m src.build.index data/hr_docs/HRAgent.txt
+python -m src.build.index data/tech_docs/TechAgent.txt
+python -m src.build.index data/finance_docs/FinanceAgent.txt
+
 # Run the system
 python src/multi_agent_system.py
 
@@ -72,8 +77,8 @@ Response + Score logged to Langfuse
 
 ## Documentation
 
-- **[Evaluator Integration](EVALUATOR_INTEGRATION.md)** - How automated evaluation works
 - **[Technical Overview](reports/overview_report.md)** - System architecture and design
+- See `evaluator/evaluator.py` for automated evaluation implementation
 
 ## What Gets Tracked in Langfuse
 
@@ -87,13 +92,31 @@ Every query generates a trace with:
 
 ## Testing
 
+### Quick Tests
 ```bash
-# Run full system test
-python test_evaluator.py
-
 # Run single query
 python src/multi_agent_system.py
+
+# Test evaluator integration
+python test_evaluator.py
+
+# Quick validation (5 queries)
+python tests/quick_validate.py
 ```
+
+### Golden Data Validation
+```bash
+# Full validation suite with golden data
+python tests/validate_system.py
+
+# Tests routing accuracy, answer quality, and performance
+# See tests/README.md for details
+```
+
+**Golden Dataset**: 45+ curated test cases covering HR, Tech, and Finance queries
+- Routing accuracy validation
+- Answer quality scoring
+- Category-wise performance analysis
 
 ## Environment Variables
 
@@ -101,9 +124,15 @@ Required in `.env`:
 ```
 OPENAI_API_KEY=your-key
 LLM_MODEL=gpt-4o-mini
+EMBEDDING_MODEL=all-MiniLM-L6-v2
 LANGFUSE_PUBLIC_KEY=pk-lf-xxx
 LANGFUSE_SECRET_KEY=sk-lf-xxx
 LANGFUSE_HOST=https://cloud.langfuse.com
+```
+
+Optional:
+```
+USE_CUDA=true  # Use GPU for embeddings (if available)
 ```
 
 ## Project Structure
@@ -113,9 +142,14 @@ M3PI-Assignment/
 ├── src/
 │   ├── agents/
 │   │   ├── orchestrator.py      # Main routing logic
+│   │   ├── agent.py             # Base agent class
 │   │   ├── hr_agent.py          # HR specialist
 │   │   ├── tech_agent.py        # Tech support specialist
-│   │   └── finance_agent.py     # Finance specialist
+│   │   └── finance_agent.py    # Finance specialist
+│   ├── build/
+│   │   └── index.py             # Vector index builder
+│   ├── enums/
+│   │   └── agent_enums.py       # Agent type enumerations
 │   └── multi_agent_system.py    # Entry point
 ├── evaluator/
 │   └── evaluator.py             # Automated quality scoring
@@ -126,7 +160,15 @@ M3PI-Assignment/
 ├── prompts/
 │   ├── orchestrator_prompt.txt  # Routing instructions
 │   └── agent_prompt.txt         # RAG response template
-└── storage/                     # Vector store indices
+├── storage/
+│   └── vectors/                  # Vector store indices
+│       ├── hragent_index/        # HR agent FAISS index
+│       ├── techagent_index/      # Tech agent FAISS index
+│       └── financeagent_index/   # Finance agent FAISS index
+└── tests/
+    ├── golden_data.json         # Test cases
+    ├── quick_validate.py        # Quick validation script
+    └── validate_system.py       # Full validation suite
 ```
 
 ## Monitoring Quality
