@@ -24,13 +24,20 @@ def main():
     - Chunks (via metadata in create_agent_qa_chain)
     - Quality Scores (via automated evaluator)
     """
-    orchestrator = Orchestrator(query="Are there available pension plans for workers?")
-    response = orchestrator.run()
-    print(f"\n{'='*60}")
-    print("FINAL RESPONSE")
-    print(f"{'='*60}")
-    print(f"{response}")
-    print(f"{'='*60}\n")
+
+    while True:
+        query = input("What would you like to know?: ")
+
+        if query.lower() in ["exit", "quit", "q"]:
+            break
+
+        orchestrator = Orchestrator(query=query)
+        response = orchestrator.run()
+        print(f"\n{'='*60}")
+        print("FINAL RESPONSE")
+        print(f"{'='*60}")
+        print(f"{response}")
+        print(f"{'='*60}\n")
 
     # Flush LangFuse to ensure all async traces and scores are sent before program exits
 

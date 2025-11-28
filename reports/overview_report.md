@@ -2,7 +2,12 @@
 
 ## Project Summary
 
+This project build on the previous 2 modules.
 This is a production-ready multi-agent RAG (Retrieval-Augmented Generation) system that intelligently routes user queries to specialized agents for HR, Tech Support, and Finance domains. The system uses LangChain for orchestration, FAISS for vector storage, and Langfuse for comprehensive observability and quality monitoring. Every response is automatically evaluated for quality using an LLM-as-judge approach.
+
+Key Assumptions:
+- Moderation is implemented
+- Rate limiting is in place.
 
 ## Architecture
 
@@ -245,7 +250,7 @@ langfuse.score_current_trace(
 - Prompt sent to LLM
 - LLM response
 - Token usage (input/output)
-- Cost ($)
+- Cost in USD
 - Latency (seconds)
 - Quality score (0-10)
 - Evaluation reasoning
@@ -324,6 +329,42 @@ Compare different configurations:
 Prompt A: 89% accuracy, 7.5/10 quality
 Prompt B: 93% accuracy, 8.1/10 quality
 → Deploy Prompt B
+```
+
+The application also logs the output on the console.
+Here is a sample
+
+```output
+What would you like to know?: Is there a way to reset my password?
+Orchestrator is initializing with query: Is there a way to reset my password?
+TechAgent is initializing
+
+Retrieved 3 chunks for TechAgent:
+  Chunk 1: TECHNICAL SUPPORT FAQ - MID-SIZED SAAS COMPANY
+
+GENERAL TECHNICAL SUPPORT
+Q: How do I reset my passw...
+  Chunk 2: Q: Can I restore deleted data?
+A: Yes, deleted data can be restored within 30 days. Go to Settings >...
+  Chunk 3: SUPPORT CONTACT
+Q: How do I contact technical support?
+A: Support is available through: 1) In-app ch...
+
+✅ Score logged to Langfuse trace: 9/10
+
+============================================================
+📊 QUALITY EVALUATION
+============================================================
+Score: 9/10
+Reasoning: The response is highly relevant as it directly addresses the query about resetting a password. The information provided is accurate and outlines a clear process for resetting the password, including important details about the expiration of the reset link. It is comprehensive, covering the steps involved and offering additional support if issues arise. The structure is clear and easy to follow, making it user-friendly. The only minor improvement could be to specify that the exact steps may vary depending on the service, which would enhance context usage. Overall, it effectively meets the criteria.
+============================================================
+
+
+============================================================
+FINAL RESPONSE
+============================================================
+To reset your password, go to the login page and click on "Forgot Password." Enter your email address, and you will receive a password reset link within 5 minutes. Please note that the link will expire after 24 hours, so make sure to use it promptly. If you encounter any issues, feel free to reach out to support for further assistance.
+============================================================
 ```
 
 ### Validation Scripts
@@ -459,8 +500,6 @@ Add more documents to existing agents without code changes.
 - **Stateless design**: Each query is independent
 - **No shared state**: Agents don't communicate with each other
 - **Easy to parallelize**: Can handle multiple queries simultaneously
-- **Load balancing ready**: Can be deployed behind a load balancer
-
 ### Performance Optimization
 
 **Current**: Single query, single agent, sequential execution
@@ -490,12 +529,10 @@ Add more documents to existing agents without code changes.
 
 This multi-agent RAG system demonstrates production-ready engineering practices:
 
-✅ **Modular architecture** with clear separation of concerns
-✅ **Production-grade components** via LangChain
-✅ **Complete observability** via Langfuse
-✅ **Automated quality assurance** via LLM-as-judge
-✅ **Systematic validation** via golden data
-✅ **Scalable design** for adding agents and domains
-✅ **Data-driven optimization** via metrics and testing
-
-The system is ready for deployment with confidence, backed by comprehensive testing, monitoring, and quality assurance mechanisms.
+✅ **Modular architecture** with clear separation of concerns <br>
+✅ **Production-grade components** via LangChain <br>
+✅ **Complete observability** via Langfuse <br>
+✅ **Automated quality assurance** via LLM-as-judge <br>
+✅ **Systematic validation** via golden data <br>
+✅ **Scalable design** for adding agents and domains <br>
+✅ **Data-driven optimization** via metrics and testing <br>

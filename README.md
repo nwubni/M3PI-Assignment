@@ -178,10 +178,3 @@ In Langfuse dashboard, track:
 2. Low-scoring responses (< 6/10)
 3. Score distribution by agent
 4. Correlation with latency/cost
-
-## Next Steps
-
-- Set up Langfuse alerts for low scores
-- A/B test different prompts using scores
-- Implement score-based retry logic
-- Add custom evaluation criteria
