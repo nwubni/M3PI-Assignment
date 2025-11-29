@@ -3,6 +3,12 @@ Test script to verify evaluator integration.
 Run this to test the automated evaluation system.
 """
 
+from pathlib import Path
+import sys
+
+# Add parent directory to path so we can import src and evaluator modules
+sys.path.append(str(Path(__file__).parent.parent))
+
 from dotenv import load_dotenv
 from src.agents.orchestrator import Orchestrator
 from langfuse import Langfuse
@@ -31,7 +37,8 @@ def test_evaluator_integration():
 
         try:
             # Run orchestrator
-            orchestrator = Orchestrator(query=query)
+            orchestrator = Orchestrator()
+            orchestrator.set_query(query)
             response = orchestrator.run()
 
             print(f"\n✓ Test {i} completed successfully")

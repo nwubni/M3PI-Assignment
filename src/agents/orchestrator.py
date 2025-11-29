@@ -24,6 +24,9 @@ from src.agents.tech_agent import TechAgent
 
 load_dotenv()
 
+
+model_name = os.getenv("LLM_MODEL", "gpt-4")
+
 # Import evaluator
 try:
     from evaluator.evaluator import evaluate_rag_quality
@@ -55,7 +58,6 @@ def create_agent_qa_chain(agent: str, query: str, langfuse_handler=None):
         tuple: (response_text, retrieved_chunks_data) for logging to LangFuse
     """
     agent_obj = agents[agent]()
-    model_name = os.getenv("LLM_MODEL", "gpt-4")
 
     try:
         # Get the vector store and create retriever
@@ -76,7 +78,7 @@ def create_agent_qa_chain(agent: str, query: str, langfuse_handler=None):
         print()
 
         # Create LLM with callback handler
-        # CallbackHandler automatically tracks: tokens, costs, latency, model, input, output
+        # CallbackHandler automatically tracks: tokens, costs, latency, model, input, output, and other details
         llm = ChatOpenAI(
             model=model_name,
             temperature=0,
@@ -108,7 +110,6 @@ def create_agent_qa_chain(agent: str, query: str, langfuse_handler=None):
         )
 
         # Run the chain with callback
-        # CallbackHandler will automatically track tokens, costs, latency, model, input, output
         config = {"callbacks": [langfuse_handler]} if langfuse_handler else {}
         result = qa_chain.invoke(
             {"question": query, "agent_type": agent.replace("Agent", "")}, config=config
@@ -147,8 +148,6 @@ def create_agent_qa_chain(agent: str, query: str, langfuse_handler=None):
 @observe(name="hr_agent", capture_input=True, capture_output=True)
 def hr_agent_func(query: str) -> str:
     """Wrapper function for HRAgent"""
-    # Create CallbackHandler - it will automatically track tokens, costs, latency, model
-    # The handler is part of the trace created by @observe decorator
     langfuse_handler = CallbackHandler()
     result = create_agent_qa_chain("HRAgent", query, langfuse_handler)
 
@@ -164,7 +163,6 @@ def hr_agent_func(query: str) -> str:
 @observe(name="tech_agent", capture_input=True, capture_output=True)
 def tech_agent_func(query: str) -> str:
     """Wrapper function for TechAgent"""
-    # Create CallbackHandler - it will automatically track tokens, costs, latency, model
     langfuse_handler = CallbackHandler()
     result = create_agent_qa_chain("TechAgent", query, langfuse_handler)
 
@@ -180,7 +178,6 @@ def tech_agent_func(query: str) -> str:
 @observe(name="finance_agent", capture_input=True, capture_output=True)
 def finance_agent_func(query: str) -> str:
     """Wrapper function for FinanceAgent"""
-    # Create CallbackHandler - it will automatically track tokens, costs, latency, model
     langfuse_handler = CallbackHandler()
     result = create_agent_qa_chain("FinanceAgent", query, langfuse_handler)
 
@@ -217,40 +214,33 @@ class Orchestrator:
     Orchestrator class that classifies user queries into agent categories.
     """
 
-    def __init__(self, query: str):
-        self.query = query
-        prompt_text = open("prompts/orchestrator_prompt.txt", "r").read()
-
-        prompt_text = prompt_text.replace("User query: {query}", "").strip()
-        self.system_prompt = prompt_text
-
-        model_name = os.getenv("LLM_MODEL", "gpt-4")
+    def __init__(self):
+        self.query = None
+        self.prompt_text = open("prompts/orchestrator_prompt.txt", "r").read()
         self.model_string = f"openai:{model_name}"
 
-        print(f"Orchestrator is initializing with query: {self.query}")
+        print(f"Orchestrator is initializing...")
+
+    def set_query(self, query: str):
+        """
+        Sets the query for the orchestrator.
+        """
+
+        self.query = query
+        self.system_prompt = self.prompt_text.replace("User query: {query}", "").strip()
 
     @observe(name="orchestrator", capture_input=True, capture_output=True)
     def run(self) -> str:
         """
         Runs the orchestrator with tool-based agent routing.
 
-        LangFuse automatically tracks:
-        - Input/Output (via @observe decorator)
-        - Latency (via @observe decorator)
-        - Tokens, Costs, Model (via CallbackHandler on LLM calls)
-        - Chunks (via metadata in create_agent_qa_chain)
-
         Returns:
             str: The agent's response to the query.
         """
-        model_name = os.getenv("LLM_MODEL", "gpt-4")
 
         # Create LangFuse callback handler for the orchestrator
         # CallbackHandler automatically tracks: tokens, costs, latency, model, input, output
         langfuse_handler = CallbackHandler()
-
-        # Add metadata using a span (metadata is automatically captured by @observe decorator)
-        # The @observe decorator already captures input/output, and CallbackHandler captures model/tokens/costs
 
         model = ChatOpenAI(
             model=model_name,

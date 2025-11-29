@@ -2,12 +2,11 @@
 
 ## Project Summary
 
-This project build on the previous 2 modules.
-This is a production-ready multi-agent RAG (Retrieval-Augmented Generation) system that intelligently routes user queries to specialized agents for HR, Tech Support, and Finance domains. The system uses LangChain for orchestration, FAISS for vector storage, and Langfuse for comprehensive observability and quality monitoring. Every response is automatically evaluated for quality using an LLM-as-judge approach.
+This project builds on the previous 2 modules. This is a production-ready multi-agent RAG (Retrieval-Augmented Generation) system that intelligently routes user queries to specialized agents for HR, Tech Support, and Finance domains. The system uses LangChain for orchestration, FAISS for vector storage, and Langfuse for comprehensive observability and quality monitoring. Every response is automatically evaluated for quality using an LLM-as-judge approach.
 
-Key Assumptions:
+**Key Assumptions:**
 - Moderation is implemented
-- Rate limiting is in place.
+- Rate limiting is in place
 
 ## Architecture
 
@@ -153,7 +152,7 @@ python -m src.build.index data/finance_docs/FinanceAgent.txt
 
 ### Retrieval Parameters
 
-- **k=3**: Retrieve top 3 most similar chunks
+- **k=3**: Retrieve top 3 most similar chunks to minimize context overloading
 - **Similarity metric**: Cosine similarity (FAISS default)
 - **No filtering**: All chunks eligible for retrieval
 
@@ -331,12 +330,10 @@ Prompt B: 93% accuracy, 8.1/10 quality
 → Deploy Prompt B
 ```
 
-The application also logs the output on the console.
-Here is a sample
+The application also logs output to the console. Here is a sample:
 
 ```output
 What would you like to know?: Is there a way to reset my password?
-Orchestrator is initializing with query: Is there a way to reset my password?
 TechAgent is initializing
 
 Retrieved 3 chunks for TechAgent:
@@ -500,6 +497,7 @@ Add more documents to existing agents without code changes.
 - **Stateless design**: Each query is independent
 - **No shared state**: Agents don't communicate with each other
 - **Easy to parallelize**: Can handle multiple queries simultaneously
+
 ### Performance Optimization
 
 **Current**: Single query, single agent, sequential execution
@@ -509,6 +507,10 @@ Add more documents to existing agents without code changes.
 - Async agent execution (parallel processing)
 - Response streaming (faster perceived latency)
 - Multi-agent collaboration (for complex queries spanning domains)
+
+## Known Limitations
+
+- **Single-agent routing**: Since this module did not include detailed coverage of LangGraph's context passing mechanisms between agents, this system is currently limited to a single agent per query. Multi-agent collaboration would require additional implementation.
 
 ## Technical Decisions Summary
 
@@ -529,10 +531,12 @@ Add more documents to existing agents without code changes.
 
 This multi-agent RAG system demonstrates production-ready engineering practices:
 
-✅ **Modular architecture** with clear separation of concerns <br>
-✅ **Production-grade components** via LangChain <br>
-✅ **Complete observability** via Langfuse <br>
-✅ **Automated quality assurance** via LLM-as-judge <br>
-✅ **Systematic validation** via golden data <br>
-✅ **Scalable design** for adding agents and domains <br>
-✅ **Data-driven optimization** via metrics and testing <br>
+✅ **Modular architecture** with clear separation of concerns  
+✅ **Production-grade components** via LangChain  
+✅ **Complete observability** via Langfuse  
+✅ **Automated quality assurance** via LLM-as-judge  
+✅ **Systematic validation** via golden data  
+✅ **Scalable design** for adding agents and domains  
+✅ **Data-driven optimization** via metrics and testing
+
+The system is ready for deployment with confidence, backed by comprehensive testing, monitoring, and quality assurance mechanisms.

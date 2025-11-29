@@ -14,17 +14,42 @@ A production-ready multi-agent orchestration system that routes user queries to 
 ✅ **Automated Quality Evaluation** - Every response scored 1-10 with reasoning  
 ✅ **Domain-Specific Knowledge** - Grounded in company documentation  
 
-## Quick Start
+## Use the Following Steps to Quickly Start
 
 ```bash
+# Open Terminal
+# Open your terminal and change to your directory of choice to set up the project
+
+# Clone the GitHub repository
+git clone https://github.com/nwubni/M3PI-Assignment.git
+
+# Change Directory
+cd M3PI-Assignment
+
 # Install dependencies
 pip install -r requirements.txt
 
 # Set up environment variables
 cp .env.example .env
 # Edit .env with your API keys
+```
 
-# Build vector indices from documents
+## Environment Variables
+
+Required in `.env`:
+```
+OPENAI_API_KEY=your-key
+LLM_MODEL=gpt-4o-mini
+EMBEDDING_MODEL=all-MiniLM-L6-v2
+LANGFUSE_PUBLIC_KEY=pk-lf-xxx
+LANGFUSE_SECRET_KEY=sk-lf-xxx
+LANGFUSE_HOST=https://cloud.langfuse.com
+```
+
+**Next, build indices and run application**
+
+```bash
+# Build vector indices from FAQ/internal documents
 python -m src.build.index data/hr_docs/HRAgent.txt
 python -m src.build.index data/tech_docs/TechAgent.txt
 python -m src.build.index data/finance_docs/FinanceAgent.txt
@@ -33,7 +58,7 @@ python -m src.build.index data/finance_docs/FinanceAgent.txt
 python src/multi_agent_system.py
 
 # Test evaluator integration
-python test_evaluator.py
+python tests/test_evaluator.py
 ```
 
 ## Architecture
@@ -94,11 +119,14 @@ Every query generates a trace with:
 
 ### Quick Tests
 ```bash
-# Run single query
+# Run single queries
 python src/multi_agent_system.py
 
+# Quit program
+Type `quit`, `q`, `exit` to end program
+
 # Test evaluator integration
-python test_evaluator.py
+python tests/test_evaluator.py
 
 # Quick validation (5 queries)
 python tests/quick_validate.py
@@ -106,34 +134,26 @@ python tests/quick_validate.py
 
 ### Golden Data Validation
 ```bash
-# Full validation suite with golden data
+# Full validation suite with golden data (takes some time to complete)
 python tests/validate_system.py
 
+# Alternatively, you can run a quick validation test using this
+python tests/quick_validate.py
+
 # Tests routing accuracy, answer quality, and performance
-# See tests/README.md for details
+# Generates detailed validation report
+```
+
+### Testing the Evaluator
+```bash
+# This is how you test the evaluator for this project.
+python tests/test_evaluator.py
 ```
 
 **Golden Dataset**: 45+ curated test cases covering HR, Tech, and Finance queries
 - Routing accuracy validation
 - Answer quality scoring
 - Category-wise performance analysis
-
-## Environment Variables
-
-Required in `.env`:
-```
-OPENAI_API_KEY=your-key
-LLM_MODEL=gpt-4o-mini
-EMBEDDING_MODEL=all-MiniLM-L6-v2
-LANGFUSE_PUBLIC_KEY=pk-lf-xxx
-LANGFUSE_SECRET_KEY=sk-lf-xxx
-LANGFUSE_HOST=https://cloud.langfuse.com
-```
-
-Optional:
-```
-USE_CUDA=true  # Use GPU for embeddings (if available)
-```
 
 ## Project Structure
 
@@ -166,8 +186,9 @@ M3PI-Assignment/
 │       ├── techagent_index/      # Tech agent FAISS index
 │       └── financeagent_index/   # Finance agent FAISS index
 └── tests/
-    ├── golden_data.json         # Test cases
+    ├── test_queries.json        # Golden data test cases
     ├── quick_validate.py        # Quick validation script
+    ├── test_evaluator.py        # Evaluator integration test
     └── validate_system.py       # Full validation suite
 ```
 

@@ -18,7 +18,7 @@ from evaluator.evaluator import evaluate_rag_quality
 load_dotenv()
 
 
-def load_golden_data(filepath="tests/golden_data.json"):
+def load_golden_data(filepath="tests/test_queries.json"):
     """Load golden dataset from JSON file."""
     with open(filepath, "r") as f:
         return json.load(f)
@@ -55,7 +55,8 @@ def validate_routing(golden_data, verbose=True):
 
         try:
             # Create orchestrator and run query
-            orchestrator = Orchestrator(query=query)
+            orchestrator = Orchestrator()
+            orchestrator.set_query(query=query)
             response = orchestrator.run()
 
             # Check which agent was invoked (simplified - check response for agent mentions)
@@ -157,7 +158,8 @@ def validate_answer_quality(golden_data, sample_size=10, verbose=True):
 
         try:
             # Run orchestrator
-            orchestrator = Orchestrator(query=query)
+            orchestrator = Orchestrator()
+            orchestrator.set_query(query=query)
             response = orchestrator.run()
 
             # Evaluate response quality

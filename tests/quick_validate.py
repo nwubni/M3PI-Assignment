@@ -6,9 +6,9 @@ This is used for rapid testing during development.
 from pathlib import Path
 import sys
 
-from src.agents.orchestrator import Orchestrator
-
 sys.path.append(str(Path(__file__).parent.parent))
+
+from src.agents.orchestrator import Orchestrator
 
 
 def quick_test():
@@ -35,7 +35,8 @@ def quick_test():
         print(f"Test {i}/5: {test['query'][:50]}...")
 
         try:
-            orchestrator = Orchestrator(query=test["query"])
+            orchestrator = Orchestrator()
+            orchestrator.set_query(query=test["query"])
             response = orchestrator.run()
 
             # Simple check: response should not be empty
