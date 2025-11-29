@@ -364,6 +364,9 @@ To reset your password, go to the login page and click on "Forgot Password." Ent
 ============================================================
 ```
 
+## Langfuse Screenshot
+![Langfuse Screenshot](../images/langfuse_screenshot.png)
+
 ### Validation Scripts
 
 **Quick validation** (`tests/quick_validate.py`):

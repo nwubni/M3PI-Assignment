@@ -100,10 +100,9 @@ Response + Score logged to Langfuse
 - Quality score logging
 - Production debugging
 
-## Documentation
+## Documentation and Report
 
 - **[Technical Overview](reports/overview_report.md)** - System architecture and design
-- See `evaluator/evaluator.py` for automated evaluation implementation
 
 ## What Gets Tracked in Langfuse
 
