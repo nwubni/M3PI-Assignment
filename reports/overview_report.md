@@ -228,8 +228,6 @@ langfuse.score_current_trace(
 
 ### Debugging with Langfuse
 
-**Problem**: "Why did the system give a wrong answer?"
-
 **Debug Process**:
 1. Find trace in Langfuse dashboard
 2. Check which agent was selected (routing correct?)
@@ -242,7 +240,7 @@ langfuse.score_current_trace(
 
 ### Langfuse Dashboard Metrics
 
-**Per Query**:
+**Logs the Following for Every Query**:
 - User input (original query)
 - Agent selected and reasoning
 - Retrieved chunks with metadata
@@ -293,7 +291,7 @@ Each test case specifies the expected agent:
 }
 ```
 
-Run validation to measure: "92% of queries routed correctly"
+Running the validation shows 92% of queries routed correctly
 
 **2. Answer Quality Validation**
 
@@ -305,7 +303,7 @@ Each test case includes an expected answer:
 }
 ```
 
-Compare actual vs expected to verify factual accuracy.
+This compares the actual vs expected to verify factual accuracy.
 
 **3. Regression Testing**
 
@@ -314,21 +312,6 @@ Before deploying changes:
 - Ensure accuracy doesn't drop
 - Catch breaking changes early
 
-**4. Performance Tracking**
-
-Track metrics over time:
-- Week 1: 87% routing accuracy
-- Week 2: 92% routing accuracy (after prompt improvement)
-- Week 3: 91% routing accuracy (stable)
-
-**5. A/B Testing**
-
-Compare different configurations:
-```
-Prompt A: 89% accuracy, 7.5/10 quality
-Prompt B: 93% accuracy, 8.1/10 quality
-→ Deploy Prompt B
-```
 
 The application also logs output to the console. Here is a sample:
 
@@ -365,6 +348,7 @@ To reset your password, go to the login page and click on "Forgot Password." Ent
 ```
 
 ## Langfuse Screenshot
+**Here is a screenshot of the Langfuse dashboard for the same query**
 ![Langfuse Screenshot](../images/langfuse_screenshot.png)
 
 ### Validation Scripts
@@ -447,7 +431,7 @@ langfuse.score_current_trace(
 
 **3. Performance Optimization**
 - Compare scores across different prompt versions
-- A/B test different models and configurations
+- Can test different models and configurations
 - Make data-driven improvements based on metrics
 
 **4. Compliance & Audit**
@@ -474,15 +458,15 @@ Filter traces by score to find:
 ### Adding New Agents
 
 **Steps**:
-1. Create agent class (e.g., `LegalAgent`) inheriting from `Agent` base class
-2. Add documents to `data/legal_docs/`
+1. Create agent class (e.g., `LegalAgent`) and inherit from `Agent` base class
+2. Add documents to `data/legal_docs/`, name it `LegalAgent.txt`
 3. Build FAISS index: `python -m src.build.index data/legal_docs/LegalAgent.txt`
-4. Add tool to orchestrator's `tools` list
-5. Update `AgentType` enum in `src/enums/agent_enums.py`
+4. In the `orchestrator.py` file, add new agent function wrapper to the `tools` list
+5. Add `LegalAgent` to `AgentType` enum in `src/enums/agent_enums.py` and update file
 6. Add agent mapping in `orchestrator.py`
 
-**No changes needed**:
-- RAG pipeline (reusable)
+**No changes needed. Every other Functionality Takes Effect**:
+- RAG pipeline (reused)
 - Evaluation system (automatic)
 - Langfuse logging (automatic)
 
@@ -509,7 +493,7 @@ Add more documents to existing agents without code changes.
 - Batch processing for multiple queries
 - Async agent execution (parallel processing)
 - Response streaming (faster perceived latency)
-- Multi-agent collaboration (for complex queries spanning domains)
+- Multi-agent collaboration (for complex queries across different domains)
 
 ## Known Limitations
 
@@ -519,10 +503,10 @@ Add more documents to existing agents without code changes.
 
 | Decision | Rationale |
 |----------|-----------|
-| **LangChain** | Production-grade components, less custom code |
+| **LangChain** | Uses in-build production-grade components |
 | **FAISS** | Fast, local, no external dependencies |
 | **Single-agent routing** | Simplicity, performance, clarity |
-| **k=3 retrieval** | Balance context vs cost/tokens |
+| **k=3 retrieval** | Balance context vs cost/tokens, minimize context overload |
 | **LLM-as-judge** | Automated quality scoring without manual review |
 | **Langfuse** | Complete observability, easy debugging |
 | **Golden data** | Systematic validation, regression prevention |
@@ -541,5 +525,3 @@ This multi-agent RAG system demonstrates production-ready engineering practices:
 ✅ **Systematic validation** via golden data  
 ✅ **Scalable design** for adding agents and domains  
 ✅ **Data-driven optimization** via metrics and testing
-
-The system is ready for deployment with confidence, backed by comprehensive testing, monitoring, and quality assurance mechanisms.
