@@ -26,6 +26,9 @@ git clone https://github.com/nwubni/M3PI-Assignment.git
 # Change Directory
 cd M3PI-Assignment
 
+# Start a virtual environment to install dependencies
+source .venv/bin/activate
+
 # Install dependencies
 pip install -r requirements.txt
 
