@@ -464,6 +464,7 @@ Filter traces by score to find:
 4. In the `orchestrator.py` file, add new agent function wrapper to the `tools` list
 5. Add `LegalAgent` to `AgentType` enum in `src/enums/agent_enums.py` and update file
 6. Add agent mapping in `orchestrator.py`
+7. Update `prompts/orchestrator_prompt.txt` with instructions for orchestrator to handle and route queries related to new agent
 
 **No changes needed. Every other Functionality Takes Effect**:
 - RAG pipeline (reused)
