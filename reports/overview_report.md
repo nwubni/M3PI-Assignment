@@ -85,7 +85,7 @@ Response Returned to User
    - Local storage (no external dependencies)
    - Easy to version control indices
 
-6. **`HuggingFaceEmbeddings`** - Text embeddings
+6. **`HuggingFaceEmbeddings`** - Text embeddings (reused from previous project)
    - Open-source embedding models
    - No API costs for embedding
    - Consistent with retrieval pipeline
